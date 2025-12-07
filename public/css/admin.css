@@ -1,0 +1,100 @@
+/* ==== SIDEBAR ==== */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: #1e1e2d;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+/* ==== TITLE ==== */
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.sidebar.collapsed h2 {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* ==== MENU ==== */
+.sidebar ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: #3d3d5c;
+    border-left: 5px solid #6a11cb;
+    padding-left: 25px;
+}
+
+.sidebar ul li a i {
+    font-size: 18px;
+}
+
+/* Ẩn chữ khi collapse */
+.sidebar ul li a span {
+    transition: 0.3s;
+}
+
+.sidebar.collapsed ul li a span {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* ==== BUTTON TOGGLE ==== */
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+/* ==== CONTENT ==== */
+.content {
+    margin-left: 240px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.sidebar.collapsed ~ .content {
+    margin-left: 70px;
+}
+.hiden {
+    display: none;
+}

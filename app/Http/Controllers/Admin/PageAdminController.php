@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class PageAdminController extends Controller
+{
+    public function showAdminPage()
+    {
+        return view('admin.pageAdmin');
+    }
+}
