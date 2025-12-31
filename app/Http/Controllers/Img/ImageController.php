@@ -10,8 +10,8 @@ class ImageController extends Controller
 {
     public function showForm()
     {
-        $posts = DB::table('posts')->get(); // Lấy tất cả posts từ database
-        return view('img.updateimg', compact('posts')); // Truyền $posts xuống view
+        $posts = DB::table('posts')->get(); 
+        return view('img.updateimg', compact('posts')); 
     }
 
     public function upload(Request $request)
@@ -19,7 +19,7 @@ class ImageController extends Controller
         $title = $request->input('title');
         $content = $request->input('content');
         $path = null;
-        //Xử lý file 
+        
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . '_' . $file->getClientOriginalName();

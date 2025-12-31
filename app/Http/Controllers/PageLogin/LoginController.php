@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class LoginController extends Controller
 {
@@ -15,6 +15,7 @@ class LoginController extends Controller
     {
         return view('login.login');
     }
+
     public function login(Request $request)
     {
         $request->validate([
@@ -22,14 +23,27 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        $user = Login::where('username', $request->input('username'))->first();
+        $user = Login::where('username', $request->username)->first();
 
-        if ($user && Hash::check($request->input('password'), $user->password)) {
-            // Đăng nhập thành công 
-            return redirect()->route('admin.page')->with('success', 'Đăng nhập thành công!');
-        } else {
-            // Đăng nhập thất bại
-            return redirect()->back()->with('error', 'Thông tin đăng nhập không đúng.');
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return back()->with('error', 'Sai tên đăng nhập hoặc mật khẩu.');
         }
+
+        Auth::login($user);
+
+        if ($user->role === 'Teacher') {
+            return redirect()->route('teacher.dashboard');
+        }
+
+        if ($user->role === 'Student') {
+            return redirect()->route('student.dashboard');
+        }
+
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.page');
+        }
+
+        Auth::logout();
+        return back()->with('error', 'Tài khoản không hợp lệ.');
     }
 }

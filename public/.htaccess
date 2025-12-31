@@ -23,3 +23,9 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+# Set correct MIME types for CSS and JS files
+<IfModule mod_mime.c>
+    AddType text/css .css
+    AddType application/javascript .js
+</IfModule>

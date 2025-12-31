@@ -1,0 +1,350 @@
+/* Teachers Page Styles */
+.page-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 80px 0 60px;
+    text-align: center;
+}
+
+.page-header-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.page-header-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: white;
+}
+
+.breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Teachers Content */
+.teachers-content {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.teacher-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.teacher-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.teacher-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.teacher-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.teacher-card:hover .teacher-image img {
+    transform: scale(1.1);
+}
+
+.teacher-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 20px;
+}
+
+.teacher-card:hover .teacher-overlay {
+    opacity: 1;
+}
+
+.teacher-social {
+    display: flex;
+    gap: 15px;
+}
+
+.teacher-social a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.teacher-social a:hover {
+    background: #667eea;
+    transform: translateY(-3px);
+}
+
+.teacher-info {
+    padding: 25px;
+}
+
+.teacher-info h3 {
+    color: #2c3e50;
+    margin: 0 0 20px 0;
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.teacher-info>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.teacher-info>div:last-child {
+    margin-bottom: 0;
+}
+
+.teacher-info i {
+    width: 20px;
+    text-align: center;
+    color: #667eea;
+}
+
+.teacher-position span {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.teacher-subject span {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.teacher-class span {
+    color: #27ae60;
+    font-weight: 500;
+}
+
+.teacher-degree span {
+    color: #8e44ad;
+    font-weight: 500;
+}
+
+.teacher-experience span {
+    color: #f39c12;
+    font-weight: 500;
+}
+
+.teacher-description {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+.teacher-description p {
+    color: #6c757d;
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Teacher Statistics */
+.teacher-stats {
+    padding: 60px 0;
+    background: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border-left: 5px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #6c757d;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #7f8c8d;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #bdc3c7;
+}
+
+.empty-state h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-header-content h1 {
+        font-size: 2rem;
+    }
+
+    .teachers-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .teacher-card {
+        margin: 0 10px;
+    }
+
+    .teacher-image {
+        height: 200px;
+    }
+
+    .teacher-info {
+        padding: 20px;
+    }
+
+    .teacher-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .stat-item {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .teachers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-social {
+        gap: 10px;
+    }
+
+    .teacher-social a {
+        width: 35px;
+        height: 35px;
+    }
+}

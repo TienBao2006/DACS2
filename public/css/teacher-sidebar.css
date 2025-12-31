@@ -1,0 +1,694 @@
+/* ==== TEACHER SIDEBAR STYLES ==== */
+
+/* Main Sidebar Container */
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: 25px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    /* Không cho header co lại */
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.sidebar-brand i {
+    font-size: 28px;
+    color: #fff;
+}
+
+.sidebar-brand h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-brand h3 {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+/* Teacher Info */
+.teacher-info {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 0 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.sidebar.collapsed .teacher-info {
+    margin: 0 10px;
+    padding: 15px 5px;
+}
+
+.teacher-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.collapsed .teacher-avatar {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.teacher-name {
+    transition: all 0.3s ease;
+}
+
+.teacher-name strong {
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.teacher-role {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar.collapsed .teacher-name,
+.sidebar.collapsed .teacher-role {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Toggle Button */
+.toggle-btn {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.sidebar.collapsed .toggle-btn {
+    right: 15px;
+}
+
+/* Navigation Menu */
+.sidebar-nav {
+    padding: 20px 0;
+    flex: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+    /* Đảm bảo có không gian cuộn */
+}
+
+/* Custom Scrollbar */
+.sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* Firefox scrollbar */
+.sidebar-nav {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.1);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 5px 15px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.sidebar ul li a:hover::before {
+    left: 100%;
+}
+
+.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul li a.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar ul li a i {
+    font-size: 20px;
+    min-width: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li a span {
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Collapsed State */
+.sidebar.collapsed ul li {
+    margin: 5px 10px;
+}
+
+.sidebar.collapsed ul li a {
+    justify-content: center;
+    padding: 15px;
+    gap: 0;
+}
+
+.sidebar.collapsed ul li a span {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.sidebar.collapsed ul li a i {
+    font-size: 22px;
+}
+
+/* Tooltip for collapsed state */
+.sidebar.collapsed ul li a {
+    position: relative;
+}
+
+.sidebar.collapsed ul li a::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+    z-index: 1000;
+}
+
+.sidebar.collapsed ul li a:hover::after {
+    opacity: 1;
+}
+
+/* Menu Categories */
+.menu-category {
+    padding: 20px 35px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.sidebar.collapsed .menu-category {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Content Area */
+.content {
+    margin-left: 280px;
+    min-height: 100vh;
+    background: #f8f9fa;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+}
+
+.sidebar.collapsed~.content {
+    margin-left: 80px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 280px;
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .sidebar.collapsed~.content {
+        margin-left: 0;
+    }
+
+    /* Mobile overlay */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.sidebar ul li {
+    animation: slideIn 0.3s ease forwards;
+}
+
+.sidebar ul li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.sidebar ul li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.sidebar ul li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.sidebar ul li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.sidebar ul li:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.sidebar ul li:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.sidebar ul li:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.sidebar ul li:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+/* Status Indicators */
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #28a745;
+    margin-left: auto;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Badge for notifications */
+.menu-badge {
+    background: #dc3545;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: auto;
+    min-width: 18px;
+    text-align: center;
+}
+
+.sidebar.collapsed .menu-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    margin: 0;
+}
+
+/* Scroll Indicators */
+.sidebar-nav::before,
+.sidebar-nav::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20px;
+    pointer-events: none;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-nav::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(102, 126, 234, 0.8), transparent);
+    opacity: 0;
+}
+
+.sidebar-nav::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(102, 126, 234, 0.8), transparent);
+    opacity: 0;
+}
+
+.sidebar-nav.can-scroll-up::before {
+    opacity: 1;
+}
+
+.sidebar-nav.can-scroll-down::after {
+    opacity: 1;
+}
+
+/* Smooth scrolling behavior */
+.sidebar-nav {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced scrollbar for better visibility */
+.sidebar:hover .sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* Scrollbar appears on hover */
+.sidebar-nav::-webkit-scrollbar {
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.sidebar:hover .sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Collapsed state scrollbar */
+.sidebar.collapsed .sidebar-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar.collapsed:hover .sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Menu fade effect when scrolling */
+.sidebar ul li {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar-nav.scrolling .sidebar ul li {
+    opacity: 0.7;
+}
+
+.sidebar-nav.scrolling .sidebar ul li:hover {
+    opacity: 1;
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+    position: absolute;
+    bottom: 80px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.scroll-to-top:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar.collapsed .scroll-to-top {
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+}
+
+/* Loading animation for menu items */
+@keyframes menuItemLoad {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.sidebar ul li {
+    animation: menuItemLoad 0.4s ease forwards;
+    opacity: 0;
+}
+
+/* Staggered animation delays */
+.sidebar ul li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.sidebar ul li:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.sidebar ul li:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.sidebar ul li:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+.sidebar ul li:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+.sidebar ul li:nth-child(6) {
+    animation-delay: 0.35s;
+}
+
+.sidebar ul li:nth-child(7) {
+    animation-delay: 0.4s;
+}
+
+.sidebar ul li:nth-child(8) {
+    animation-delay: 0.45s;
+}
+
+.sidebar ul li:nth-child(9) {
+    animation-delay: 0.5s;
+}
+
+.sidebar ul li:nth-child(10) {
+    animation-delay: 0.55s;
+}
+
+.sidebar ul li:nth-child(11) {
+    animation-delay: 0.6s;
+}
+
+.sidebar ul li:nth-child(12) {
+    animation-delay: 0.65s;
+}
+
+.sidebar ul li:nth-child(13) {
+    animation-delay: 0.7s;
+}
+
+.sidebar ul li:nth-child(14) {
+    animation-delay: 0.75s;
+}
+
+.sidebar ul li:nth-child(15) {
+    animation-delay: 0.8s;
+}
+
+.sidebar ul li:nth-child(16) {
+    animation-delay: 0.85s;
+}
+
+.sidebar ul li:nth-child(17) {
+    animation-delay: 0.9s;
+}
+
+.sidebar ul li:nth-child(18) {
+    animation-delay: 0.95s;
+}
+
+.sidebar ul li:nth-child(19) {
+    animation-delay: 1s;
+}
+
+.sidebar ul li:nth-child(20) {
+    animation-delay: 1.05s;
+}
+
+/* Menu category styling improvements */
+.menu-category {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    margin: 10px 0 5px 0;
+    z-index: 5;
+}
+ @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .notification button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        
+        .notification button:hover {
+            background: rgba(255,255,255,0.2);
+        }

@@ -1,0 +1,441 @@
+/* ==== TEACHER VIEW STUDENT SCORES STYLES ==== */
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.breadcrumb {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Student Info Card */
+.student-info-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.student-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.student-avatar {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.student-details {
+    flex: 1;
+}
+
+.student-details h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+}
+
+.student-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.student-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Semester Selector Card */
+.semester-selector-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.selector-header {
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.selector-header h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.selector-content {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.semester-tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: 2px solid #dee2e6;
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.tab-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.tab-btn:hover {
+    border-color: #007bff;
+}
+
+.year-selector select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Scores Detail Container */
+.scores-detail-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.scores-header {
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scores-header h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+/* Subjects Grid */
+.subjects-grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.subject-card {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.subject-header {
+    background: #f8f9fa;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.subject-header h4 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.subject-average {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.average-label {
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.average-score {
+    font-weight: bold;
+    font-size: 18px;
+    color: #007bff;
+}
+
+/* Scores Breakdown */
+.scores-breakdown {
+    padding: 15px;
+}
+
+.score-category {
+    margin-bottom: 15px;
+}
+
+.score-category h5 {
+    margin: 0 0 10px 0;
+    color: #495057;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.scores-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.score-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.score-item.large {
+    grid-column: span 2;
+}
+
+.score-label {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.score-value {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.score-category.final {
+    border-top: 2px solid #007bff;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.final-score {
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 8px;
+}
+
+.final-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Overall Summary */
+.overall-summary {
+    border-top: 1px solid #dee2e6;
+    background: #f8f9fa;
+}
+
+.summary-header {
+    padding: 20px 20px 0 20px;
+}
+
+.summary-header h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.summary-content {
+    padding: 20px;
+}
+
+.summary-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.summary-stats .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.stat-value {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.stat-value.classification {
+    color: #28a745;
+}
+
+.stat-value.conduct {
+    color: #17a2b8;
+}
+
+/* Button Styles */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Score value colors based on performance */
+.score-value.excellent,
+.stat-value.excellent,
+.final-value.excellent {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.score-value.good,
+.stat-value.good,
+.final-value.good {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.score-value.average,
+.stat-value.average,
+.final-value.average {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.score-value.poor,
+.stat-value.poor,
+.final-value.poor {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Classification colors */
+.classification.giỏi {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.classification.khá {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.classification.trung-bình {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.classification.yếu {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Score notes */
+.score-notes {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 4px solid #007bff;
+}
+
+.score-notes h5 {
+    margin: 0 0 5px 0;
+    color: #495057;
+    font-size: 14px;
+}
+
+.score-notes p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* Empty state styling */
+.score-value:contains('--'),
+.stat-value:contains('--'),
+.final-value:contains('--') {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .subjects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-stats {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,55 +1,244 @@
-/* ==== SIDEBAR ==== */
-.sidebar {
-    width: 240px;
-    height: 100vh;
-    background: #1e1e2d;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px 0;
-    box-shadow: 3px 0 10px rgba(0,0,0,0.3);
-    overflow: hidden;
-    transition: 0.3s;
+/* Admin CSS - Updated for new sidebar */
+/* Note: Main sidebar styles are now in admin-sidebar.css */
+
+/* Content area styles */
+.content {
+    background: #f8f9fa;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-.sidebar.collapsed {
-    width: 70px;
+/* Card styles */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-/* ==== TITLE ==== */
-.sidebar h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 22px;
-    transition: 0.3s;
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+    border: none;
+    padding: 15px 20px;
 }
 
-.sidebar.collapsed h2 {
-    opacity: 0;
-    transform: translateY(-10px);
-}
-
-/* ==== MENU ==== */
-.sidebar ul {
-    list-style: none;
-    padding-left: 0;
+.card-header h3 {
     margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-.sidebar ul li {
-    margin: 15px 0;
+.card-body {
+    padding: 20px;
 }
 
-.sidebar ul li a {
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 16px;
-    color: #fff;
-    text-decoration: none;
-    transition: 0.3s;
+/* Table styles */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-top: none;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    color: #495057;
+    padding: 12px;
+}
+
+.table tbody td {
+    padding: 12px;
+    vertical-align: middle;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Button styles */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border: none;
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+    border: none;
+    color: #212529;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
+    border: none;
+}
+
+.btn-info {
+    background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+    border: none;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    border: none;
+}
+
+/* Form styles */
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 10px 12px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 5px;
+}
+
+/* Alert styles */
+.alert {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    color: #856404;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+    color: #0c5460;
+}
+
+/* Badge styles */
+.badge {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Pagination styles */
+.pagination {
+    justify-content: center;
+}
+
+.page-link {
+    color: #667eea;
+    border: 1px solid #dee2e6;
+    padding: 8px 12px;
+}
+
+.page-link:hover {
+    color: #764ba2;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+.page-item.active .page-link {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+        padding: 15px;
+    }
+
+    .card-header {
+        padding: 12px 15px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Custom scrollbar for content */
+.content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+text-decoration: none;
+transition: 0.3s;
 }
 
 .sidebar ul li a:hover {
@@ -92,9 +281,95 @@
     transition: 0.3s;
 }
 
-.sidebar.collapsed ~ .content {
+.sidebar.collapsed~.content {
     margin-left: 70px;
 }
+
 .hiden {
     display: none;
+}
+
+/* Sidebar mặc định */
+.sidebar {
+    width: 240px;
+    background: #1d1d2e;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    transition: width .3s ease;
+    overflow: hidden;
+    /* Ngăn tràn nội dung */
+}
+
+/* Khi thu nhỏ */
+.sidebar.collapsed {
+    width: 70px;
+    /* CHỈ CÒN 70PX – GỌN GÀNG */
+}
+
+/* Căn icon + chữ */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+/* Icon to và đẹp */
+.sidebar ul li a i {
+    font-size: 22px;
+    min-width: 25px;
+    text-align: center;
+}
+
+/* Khi collapsed: chỉ hiện icon */
+.sidebar.collapsed ul li a span {
+    display: none;
+}
+
+/* Căn icon giữa sidebar */
+.sidebar.collapsed ul li a {
+    justify-content: center;
+}
+
+/* Nút thu gọn */
+.toggle-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Techer  */
+.teacher-info {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.teacher-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    margin-bottom: 10px;
+}
+
+.teacher-name strong {
+    font-size: 16px;
+    color: #fff;
 }
